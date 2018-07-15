@@ -17,7 +17,7 @@ namespace OneShotLearnCSharp.Positions
         }
 
         Dictionary<PgPlayType, int> PlayTypeSkillLevel;
-
+        Dictionary<PositionsCommon.SkillThresholds, double> SkillExpectancy;
 
         public PointGuard(int slasher, int distributor, int shooter, int defender)
         {
@@ -33,18 +33,74 @@ namespace OneShotLearnCSharp.Positions
 
         double AvgNbaAgeExpectancyPerPlaystyle()
         {
-            double expectancyPerPlayStyle;
+
             double shooterExpectancy = GetShooterExpectancy(PlayTypeSkillLevel[PgPlayType.Shooter]);
             double slasherExpectancy = GetSlasherExpectancy(PlayTypeSkillLevel[PgPlayType.Slasher]);
             double distributorExpectancy = GetDistributorExpectancy(PlayTypeSkillLevel[PgPlayType.Distributor]);
             double defenderExpectancy = GetDefenderExpectancy(PlayTypeSkillLevel[PgPlayType.Defender]);
 
-            expectancyPerPlayStyle = (shooterExpectancy + slasherExpectancy + distributorExpectancy + defenderExpectancy) / 4;
-
-            return expectancyPerPlayStyle;
+            return (shooterExpectancy + slasherExpectancy + distributorExpectancy + defenderExpectancy) / 4;
         }
 
-        Dictionary<PositionsCommon.SkillThresholds, double> DefenderValues;
+        internal double GetDefenderExpectancy(int skillLevel)
+        {
+            SkillExpectancy = new Dictionary<PositionsCommon.SkillThresholds, double>
+            {
+                { PositionsCommon.SkillThresholds.Unplayable, PositionsCommon.GuardDefenderExpectancy.UNPLAYABLE},
+                { PositionsCommon.SkillThresholds.NonFactor, PositionsCommon.GuardDefenderExpectancy.NONFACTOR},
+                { PositionsCommon.SkillThresholds.Average, PositionsCommon.GuardDefenderExpectancy.AVERAGE},
+                { PositionsCommon.SkillThresholds.Good, PositionsCommon.GuardDefenderExpectancy.GOOD },
+                { PositionsCommon.SkillThresholds.Great, PositionsCommon.GuardDefenderExpectancy.GREAT },
+                { PositionsCommon.SkillThresholds.Starter, PositionsCommon.GuardDefenderExpectancy.STARTER },
+                { PositionsCommon.SkillThresholds.ImpactPlayer, PositionsCommon.GuardDefenderExpectancy.IMPACT_PLAYER }
+            };
+            return GetExpectancy(skillLevel, SkillExpectancy);
+        }
+
+        private double GetDistributorExpectancy(int skillLevel)
+        {
+            SkillExpectancy = new Dictionary<PositionsCommon.SkillThresholds, double>
+            {
+                { PositionsCommon.SkillThresholds.Unplayable, PositionsCommon.GuardDistributorExpectancy.UNPLAYABLE },
+                { PositionsCommon.SkillThresholds.NonFactor, PositionsCommon.GuardDistributorExpectancy.NONFACTOR },
+                { PositionsCommon.SkillThresholds.Average, PositionsCommon.GuardDistributorExpectancy.AVERAGE },
+                { PositionsCommon.SkillThresholds.Good, PositionsCommon.GuardDistributorExpectancy.GOOD },
+                { PositionsCommon.SkillThresholds.Great, PositionsCommon.GuardDistributorExpectancy.GREAT },
+                { PositionsCommon.SkillThresholds.Starter, PositionsCommon.GuardDistributorExpectancy.STARTER },
+                { PositionsCommon.SkillThresholds.ImpactPlayer, PositionsCommon.GuardDistributorExpectancy.IMPACT_PLAYER }
+            };
+            return GetExpectancy(skillLevel, SkillExpectancy);
+        }
+
+        private double GetSlasherExpectancy(int skillLevel)
+        {
+            SkillExpectancy = new Dictionary<PositionsCommon.SkillThresholds, double>
+            {
+                { PositionsCommon.SkillThresholds.Unplayable, PositionsCommon.GuardSlasherExpectancy.UNPLAYABLE },
+                { PositionsCommon.SkillThresholds.NonFactor, PositionsCommon.GuardSlasherExpectancy.NONFACTOR },
+                { PositionsCommon.SkillThresholds.Average, PositionsCommon.GuardSlasherExpectancy.AVERAGE },
+                { PositionsCommon.SkillThresholds.Good, PositionsCommon.GuardSlasherExpectancy.GOOD },
+                { PositionsCommon.SkillThresholds.Great, PositionsCommon.GuardSlasherExpectancy.GREAT },
+                { PositionsCommon.SkillThresholds.Starter, PositionsCommon.GuardSlasherExpectancy.STARTER },
+                { PositionsCommon.SkillThresholds.ImpactPlayer, PositionsCommon.GuardSlasherExpectancy.IMPACT_PLAYER }
+            };
+            return GetExpectancy(skillLevel, SkillExpectancy);
+        }
+
+        private double GetShooterExpectancy(int skillLevel)
+        {
+            SkillExpectancy = new Dictionary<PositionsCommon.SkillThresholds, double>
+            {
+                { PositionsCommon.SkillThresholds.Unplayable, PositionsCommon.GuardShooterExpectancy.UNPLAYABLE },
+                { PositionsCommon.SkillThresholds.NonFactor, PositionsCommon.GuardShooterExpectancy.NONFACTOR },
+                { PositionsCommon.SkillThresholds.Average, PositionsCommon.GuardShooterExpectancy.AVERAGE },
+                { PositionsCommon.SkillThresholds.Good, PositionsCommon.GuardShooterExpectancy.GOOD },
+                { PositionsCommon.SkillThresholds.Great, PositionsCommon.GuardShooterExpectancy.GREAT },
+                { PositionsCommon.SkillThresholds.Starter, PositionsCommon.GuardShooterExpectancy.STARTER },
+                { PositionsCommon.SkillThresholds.ImpactPlayer, PositionsCommon.GuardShooterExpectancy.IMPACT_PLAYER }
+            };
+            return GetExpectancy(skillLevel, SkillExpectancy);
+        }
 
         private double GetExpectancy(int skillLevel, Dictionary<PositionsCommon.SkillThresholds, double> expectancyPairs)
         {
@@ -76,66 +132,6 @@ namespace OneShotLearnCSharp.Positions
             }
 
             return expectancy;
-        }
-
-        internal double GetDefenderExpectancy(int skillLevel)
-        {
-            DefenderValues = new Dictionary<PositionsCommon.SkillThresholds, double>
-            {
-                { PositionsCommon.SkillThresholds.Unplayable, 0.0 },
-                { PositionsCommon.SkillThresholds.NonFactor, 2.0 },
-                { PositionsCommon.SkillThresholds.Average, 3.5 },
-                { PositionsCommon.SkillThresholds.Good, 4.0 },
-                { PositionsCommon.SkillThresholds.Great, 5.0 },
-                { PositionsCommon.SkillThresholds.Starter, 6.0 },
-                { PositionsCommon.SkillThresholds.ImpactPlayer, 8.0 }
-            };
-            return GetExpectancy(skillLevel, DefenderValues);
-        }
-
-        private double GetDistributorExpectancy(int skillLevel)
-        {
-            DefenderValues = new Dictionary<PositionsCommon.SkillThresholds, double>
-            {
-                { PositionsCommon.SkillThresholds.Unplayable, 0.0 },
-                { PositionsCommon.SkillThresholds.NonFactor, 0.0 },
-                { PositionsCommon.SkillThresholds.Average, 1.0 },
-                { PositionsCommon.SkillThresholds.Good, 3.0 },
-                { PositionsCommon.SkillThresholds.Great, 4.0 },
-                { PositionsCommon.SkillThresholds.Starter, 5.0 },
-                { PositionsCommon.SkillThresholds.ImpactPlayer, 7.0 }
-            };
-            return GetExpectancy(skillLevel, DefenderValues);
-        }
-
-        private double GetSlasherExpectancy(int skillLevel)
-        {
-            DefenderValues = new Dictionary<PositionsCommon.SkillThresholds, double>
-            {
-                { PositionsCommon.SkillThresholds.Unplayable, 0.0 },
-                { PositionsCommon.SkillThresholds.NonFactor, 0.5 },
-                { PositionsCommon.SkillThresholds.Average, 1.0 },
-                { PositionsCommon.SkillThresholds.Good, 1.5 },
-                { PositionsCommon.SkillThresholds.Great, 2.0 },
-                { PositionsCommon.SkillThresholds.Starter, 4.0 },
-                { PositionsCommon.SkillThresholds.ImpactPlayer, 6.5 }
-            };
-            return GetExpectancy(skillLevel, DefenderValues);
-        }
-
-        private double GetShooterExpectancy(int skillLevel)
-        {
-            DefenderValues = new Dictionary<PositionsCommon.SkillThresholds, double>
-            {
-                { PositionsCommon.SkillThresholds.Unplayable, 0.0 },
-                { PositionsCommon.SkillThresholds.NonFactor, 0.5 },
-                { PositionsCommon.SkillThresholds.Average, 1.0 },
-                { PositionsCommon.SkillThresholds.Good, 2.0 },
-                { PositionsCommon.SkillThresholds.Great, 3.5 },
-                { PositionsCommon.SkillThresholds.Starter, 6.0 },
-                { PositionsCommon.SkillThresholds.ImpactPlayer, 8.5 }
-            };
-            return GetExpectancy(skillLevel, DefenderValues);
         }
     }
 }
