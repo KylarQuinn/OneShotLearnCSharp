@@ -8,7 +8,7 @@ namespace OneShotLearnCSharp.Positions
 {
     class PointGuard
     {
-        enum PgPlayType
+        public enum PgPlayType
         {
             Slasher = 1,
             Distributor = 2,
