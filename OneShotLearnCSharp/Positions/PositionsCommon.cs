@@ -12,6 +12,18 @@ namespace OneShotLearnCSharp.Positions
         {
             
         }
+
+        public enum SkillThresholds
+        {
+            Unplayable = 30,
+            NonFactor = 45,
+            Average = 50,
+            Good = 62,
+            Great = 70,
+            Starter = 78,
+            ImpactPlayer = 86
+        }
+
         public static int GetSkillLevel(int level)
         {
             if(level <= 0)
