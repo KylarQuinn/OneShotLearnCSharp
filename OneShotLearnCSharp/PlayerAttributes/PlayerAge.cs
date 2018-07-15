@@ -11,40 +11,40 @@ namespace OneShotLearnCSharp.PlayerAttributes
     class PlayerAge
     {
         Dictionary<int, int> MinutesPerSeason;
-        int Position;
+        Role Position;
         int LiteralAge;
 
-        public PlayerAge(int position)
+        public PlayerAge(Role position)
         {
             Position = position;
         }
 
-        public PlayerAge(int position, int yearOfExperience, int minutes)
-        {
-            Position = position;
-            if (!MinutesPerSeason.ContainsKey(yearOfExperience))
-            {
-                MinutesPerSeason.Add(yearOfExperience, minutes);
-            }
-        }
-
-        public PlayerAge(int position, int yearOfExperience, int minutes, int age)
+        public PlayerAge(Role position, int yearOfExperience, int minutes)
         {
             Position = position;
             if (!MinutesPerSeason.ContainsKey(yearOfExperience))
             {
                 MinutesPerSeason.Add(yearOfExperience, minutes);
             }
-
         }
 
-        public PlayerAge(int position, Dictionary<int, int> minutesPerSeason)
+        public PlayerAge(Role position, int yearOfExperience, int minutes, int age)
+        {
+            Position = position;
+            if (!MinutesPerSeason.ContainsKey(yearOfExperience))
+            {
+                MinutesPerSeason.Add(yearOfExperience, minutes);
+            }
+            LiteralAge = age;
+        }
+
+        public PlayerAge(Role position, Dictionary<int, int> minutesPerSeason)
         {
             Position = position;
             MinutesPerSeason = minutesPerSeason;
         }
 
-        double GetNbaAge(int position, Positions.PointGuard.PgPlayType playType)
+        double GetNbaAge(Role position, PgPlayType playType)
         {
             int TotalMinutes = 0;
             int TotalYears = 0;
@@ -55,17 +55,21 @@ namespace OneShotLearnCSharp.PlayerAttributes
                 TotalYears += 1;
             }
 
-            if (Position == 1)
+            if (position == Role.PointGuard)
             {
-                if (playType == Positions.PointGuard.PgPlayType.Slasher)
+                if (playType == PgPlayType.Slasher)
                 {
 
                 }
-                else if (playType == Positions.PointGuard.PgPlayType.Shooter)
+                else if (playType == PgPlayType.Distributor)
                 {
 
                 }
-                else if (playType = 3)
+                else if (playType == PgPlayType.Shooter)
+                {
+
+                }
+                else if (playType == PgPlayType.Defender)
                 {
 
                 }

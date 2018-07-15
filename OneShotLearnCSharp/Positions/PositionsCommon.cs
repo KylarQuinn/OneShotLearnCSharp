@@ -8,6 +8,31 @@ namespace OneShotLearnCSharp.Positions
 {
     class PositionsCommon
     {
+        public enum Role
+        {
+            PointGuard = 1,
+            TwoGuard = 2,
+            SmallForward = 3,
+            PowerForward = 4,
+            Center = 5,
+            Big = 6,
+            Wing = 7
+        }
+
+        public class CountingStats
+        {
+            Dictionary<int, int> PointsPerSeason;
+            Dictionary<int, int> ReboundsPerSeason;
+            Dictionary<int, int> AssistsPerSeason;
+            Dictionary<int, int> StealsPerSeason;
+            Dictionary<int, int> BlocksPerSeason;
+            Dictionary<int, int> ThreePtMadePerSeason;
+            Dictionary<int, int> ThreePtAttemptsPerSeason;
+            Dictionary<int, int> FTMadePerSeason;
+            Dictionary<int, int> FTAttemptPerSeason;
+            int SeasonsPlayed;
+            PlayerAttributes.PlayerAge NbaAge;
+        }
 
         public enum SkillThresholds
         {
