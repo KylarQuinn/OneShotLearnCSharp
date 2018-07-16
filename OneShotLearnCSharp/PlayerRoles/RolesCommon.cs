@@ -61,6 +61,36 @@ namespace OneShotLearnCSharp.PlayerRoles
             }
         }
 
+        public abstract class GuardAgeModifier
+        {
+            public const double EIGHTEEN = 0.95;
+            public const double NINETEEN = 1.00;
+            public const double TWENTY = 1.05;
+            public const double TWENTYONE = 1.00;
+            public const double TWENTYTWO = 0.95;
+            public const double TWENTYTHREE = 0.85;
+        }
+
+        public abstract class WingAgeModifier
+        {
+            public const double EIGHTEEN = 1.20;
+            public const double NINETEEN = 1.25;
+            public const double TWENTY = 1.10;
+            public const double TWENTYONE = 1.05;
+            public const double TWENTYTWO = 1.00;
+            public const double TWENTYTHREE = 0.95;
+        }
+
+        public abstract class BigAgeModifier
+        {
+            public const double EIGHTEEN = 1.30;
+            public const double NINETEEN = 1.25;
+            public const double TWENTY = 1.25;
+            public const double TWENTYONE = 1.10;
+            public const double TWENTYTWO = 1.05;
+            public const double TWENTYTHREE = 1.00;
+        }
+
         #region "Guard expectancies"
         public abstract class GuardDefenderExpectancy
         {

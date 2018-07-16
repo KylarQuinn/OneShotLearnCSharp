@@ -18,6 +18,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 
         Dictionary<PgPlayType, int> PlayTypeSkillLevel;
         Dictionary<RolesCommon.SkillThresholds, double> SkillExpectancy;
+        PlayerAttributes.PlayerAge PlayerAge;
 
         public PointGuard(){ }
 
@@ -36,19 +37,28 @@ namespace OneShotLearnCSharp.PlayerRoles
             };
         }
 
+
+        public override double GetExpectancy(int age)
+        {
+            PlayerAge = new PlayerAttributes.PlayerAge(RolesCommon.Role.PointGuard, age);
+            return PlayerAge.ModifyExpectancyBasedOnRole() * AvgNbaAgeExpectancyPerPlaystyle();
+        }
+
         double AvgNbaAgeExpectancyPerPlaystyle()
         {
-
+            // Get Expectancies
             double shooterExpectancy = GetShooterExpectancy(PlayTypeSkillLevel[PgPlayType.Shooter]);
             double slasherExpectancy = GetSlasherExpectancy(PlayTypeSkillLevel[PgPlayType.Slasher]);
             double distributorExpectancy = GetDistributorExpectancy(PlayTypeSkillLevel[PgPlayType.Distributor]);
             double defenderExpectancy = GetDefenderExpectancy(PlayTypeSkillLevel[PgPlayType.Defender]);
 
+            // Naive total years expectancy determination for now
             return (shooterExpectancy + slasherExpectancy + distributorExpectancy + defenderExpectancy) / 4;
         }
 
         internal double GetDefenderExpectancy(int skillLevel)
         {
+            // Set up new dictionary with thresholds corresponding expectancy
             SkillExpectancy = new Dictionary<RolesCommon.SkillThresholds, double>
             {
                 { RolesCommon.SkillThresholds.Unplayable, RolesCommon.GuardDefenderExpectancy.UNPLAYABLE},
@@ -62,8 +72,9 @@ namespace OneShotLearnCSharp.PlayerRoles
             return GetExpectancy(skillLevel, SkillExpectancy);
         }
 
-        private double GetDistributorExpectancy(int skillLevel)
+        internal double GetDistributorExpectancy(int skillLevel)
         {
+            // Set up new dictionary with thresholds corresponding expectancy
             SkillExpectancy = new Dictionary<RolesCommon.SkillThresholds, double>
             {
                 { RolesCommon.SkillThresholds.Unplayable, RolesCommon.GuardDistributorExpectancy.UNPLAYABLE },
@@ -77,8 +88,9 @@ namespace OneShotLearnCSharp.PlayerRoles
             return GetExpectancy(skillLevel, SkillExpectancy);
         }
 
-        private double GetSlasherExpectancy(int skillLevel)
+        internal double GetSlasherExpectancy(int skillLevel)
         {
+            // Set up new dictionary with thresholds corresponding expectancy
             SkillExpectancy = new Dictionary<RolesCommon.SkillThresholds, double>
             {
                 { RolesCommon.SkillThresholds.Unplayable, RolesCommon.GuardSlasherExpectancy.UNPLAYABLE },
@@ -92,8 +104,9 @@ namespace OneShotLearnCSharp.PlayerRoles
             return GetExpectancy(skillLevel, SkillExpectancy);
         }
 
-        private double GetShooterExpectancy(int skillLevel)
+        internal double GetShooterExpectancy(int skillLevel)
         {
+            // Set up new dictionary with thresholds corresponding expectancy
             SkillExpectancy = new Dictionary<RolesCommon.SkillThresholds, double>
             {
                 { RolesCommon.SkillThresholds.Unplayable, RolesCommon.GuardShooterExpectancy.UNPLAYABLE },
@@ -109,34 +122,37 @@ namespace OneShotLearnCSharp.PlayerRoles
 
         private double GetExpectancy(int skillLevel, Dictionary<RolesCommon.SkillThresholds, double> expectancyPairs)
         {
-            if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Unplayable))
+            // If the skill level is below the threshold, return the expectancy in the dictionary.
+            if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.NonFactor))
             {
                 return expectancyPairs[RolesCommon.SkillThresholds.Unplayable];
             }
-            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.NonFactor))
+            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Average))
             {
                 return expectancyPairs[RolesCommon.SkillThresholds.NonFactor];
             }
-            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Average))
+            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Good))
             {
                 return expectancyPairs[RolesCommon.SkillThresholds.Average];
             }
-            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Good))
+            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Great))
             {
                 return expectancyPairs[RolesCommon.SkillThresholds.Good];
             }
-            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Great))
+            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Starter))
             {
                 return expectancyPairs[RolesCommon.SkillThresholds.Great];
             }
-            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.Starter))
+            else if (skillLevel < Convert.ToInt32(RolesCommon.SkillThresholds.ImpactPlayer))
             {
                 return expectancyPairs[RolesCommon.SkillThresholds.Starter];
             }
             else
             {
+                // This person has a skill level >= 86
                 return expectancyPairs[RolesCommon.SkillThresholds.ImpactPlayer];
             }
         }
+
     }
 }

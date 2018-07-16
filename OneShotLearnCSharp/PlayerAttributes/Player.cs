@@ -15,9 +15,7 @@ namespace OneShotLearnCSharp.PlayerRoles
             readonly String PlayerName;
             readonly String PlayerNumber;
             readonly int LiteralAge;
-            CountingStats countingStats;
             BaseRole role;
-            Dictionary<int, Dictionary<int, int>> NbaYear_PlayTypeSkill_SkillLevel;
 
             public Player(string playerName, string playerNumber, int literalAge)
             {
@@ -28,13 +26,13 @@ namespace OneShotLearnCSharp.PlayerRoles
 
             public void SetRole(int position)
             {
-                //Figure out how to translate RtiConvert.ToEnum(of enum)(string enumName)
+                //Figure out how to translate RtiConvert.ToEnum(of EnumName)(string enum.ToString())
                 role = RoleFactory.CreateInstance(position);
             }
 
-            public void GetExpectancy(int skillOne, int skillTwo, int skillThree, int skillFour)
+            public double GetExpectancy(int age)
             {
-
+                return role.GetExpectancy(age);
             }
         }
     }
