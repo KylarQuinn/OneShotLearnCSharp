@@ -8,17 +8,12 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class Forward : BaseRole
     {
-        public Forward()
+        public Forward(int position) : base(position)
         {
 
         }
 
         public override double AvgNbaExpectancyPerPlaystyle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double GetExpectancy(int Age)
         {
             throw new NotImplementedException();
         }

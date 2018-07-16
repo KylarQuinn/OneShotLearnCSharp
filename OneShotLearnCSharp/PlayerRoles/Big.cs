@@ -8,14 +8,12 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class Big : BaseRole
     {
-        public Big() { }
-
-        public override double AvgNbaExpectancyPerPlaystyle()
+        public Big(int position) : base(position)
         {
-            throw new NotImplementedException();
+
         }
 
-        public override double GetExpectancy(int Age)
+        public override double AvgNbaExpectancyPerPlaystyle()
         {
             throw new NotImplementedException();
         }

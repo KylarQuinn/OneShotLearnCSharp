@@ -8,17 +8,12 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class TwoGuard : BaseRole
     {
-        public TwoGuard()
+        public TwoGuard(int position) : base(position)
         {
 
         }
 
         public override double AvgNbaExpectancyPerPlaystyle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double GetExpectancy(int Age)
         {
             throw new NotImplementedException();
         }

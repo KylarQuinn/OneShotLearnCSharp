@@ -8,7 +8,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class SmallForward : BaseRole
     {
-        public SmallForward()
+        public SmallForward(int position) : base(position)
         {
 
         }
@@ -18,10 +18,6 @@ namespace OneShotLearnCSharp.PlayerRoles
             throw new NotImplementedException();
         }
 
-        public override double GetExpectancy(int Age)
-        {
-            throw new NotImplementedException();
-        }
 
         public override void SetSkills(int first, int second, int third, int fourth)
         {

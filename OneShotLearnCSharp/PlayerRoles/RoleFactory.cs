@@ -14,19 +14,19 @@ namespace OneShotLearnCSharp.PlayerRoles
             switch (role)
             {
                 case 1:
-                    return new PointGuard();
+                    return new PointGuard(role);
                 case 2:
-                    return new TwoGuard();
+                    return new TwoGuard(role);
                 case 3:
-                    return new SmallForward();
+                    return new SmallForward(role);
                 case 4:
-                    return new PowerForward();
+                    return new PowerForward(role);
                 case 5:
-                    return new Center();
+                    return new Center(role);
                 case 6:
-                    return new Big();
+                    return new Big(role);
                 case 7:
-                    return new Wing();
+                    return new Wing(role);
                 default:
                     throw new InvalidOperationException("Player role encountered that is not defined.");
             }

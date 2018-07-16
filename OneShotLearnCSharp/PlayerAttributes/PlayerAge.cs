@@ -9,10 +9,10 @@ namespace OneShotLearnCSharp.PlayerAttributes
     // Simplify the concept to only incoming draft prospects.  The scope explodes otherwise.
     class PlayerAge
     {
-        PlayerRoles.RolesCommon.Role Position;
+        int Position;
         int LiteralAge;
 
-        public PlayerAge(PlayerRoles.RolesCommon.Role position, int literalAge)
+        public PlayerAge(int position, int literalAge)
         {
             Position = position;
             LiteralAge = literalAge;
@@ -20,17 +20,18 @@ namespace OneShotLearnCSharp.PlayerAttributes
 
         public double ModifyExpectancyBasedOnRole()
         {
-            switch (Position)
+            PlayerRoles.Role position = Converters.EthanConvert.ToRole(Position);
+            switch (position)
             {
-                case PlayerRoles.RolesCommon.Role.PointGuard:
-                case PlayerRoles.RolesCommon.Role.TwoGuard:
+                case PlayerRoles.Role.PointGuard:
+                case PlayerRoles.Role.TwoGuard:
                     return ModifyGuardsBasedOnAge(LiteralAge);
-                case PlayerRoles.RolesCommon.Role.SmallForward:
-                case PlayerRoles.RolesCommon.Role.Wing:
+                case PlayerRoles.Role.SmallForward:
+                case PlayerRoles.Role.Wing:
                     return ModifyWingsBasedOnAge(LiteralAge);
-                case PlayerRoles.RolesCommon.Role.PowerForward:
-                case PlayerRoles.RolesCommon.Role.Big:
-                case PlayerRoles.RolesCommon.Role.Center:
+                case PlayerRoles.Role.PowerForward:
+                case PlayerRoles.Role.Big:
+                case PlayerRoles.Role.Center:
                     return ModifyBigsBasedOnAge(LiteralAge);
                 default:
                     throw new InvalidOperationException("Enountered undefined role.");

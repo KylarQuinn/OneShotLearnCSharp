@@ -8,17 +8,12 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class Wing : BaseRole
     {
-        public Wing()
+        public Wing(int position) : base(position)
         {
 
         }
 
         public override double AvgNbaExpectancyPerPlaystyle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double GetExpectancy(int Age)
         {
             throw new NotImplementedException();
         }

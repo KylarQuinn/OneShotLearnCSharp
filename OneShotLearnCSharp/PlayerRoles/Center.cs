@@ -8,17 +8,12 @@ namespace OneShotLearnCSharp.Positions
 {
     class Center : PlayerRoles.BaseRole
     {
-        public Center()
+        public Center(int position) : base(position)
         {
 
         }
 
         public override double AvgNbaExpectancyPerPlaystyle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double GetExpectancy(int Age)
         {
             throw new NotImplementedException();
         }

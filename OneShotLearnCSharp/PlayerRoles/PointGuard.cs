@@ -17,10 +17,11 @@ namespace OneShotLearnCSharp.PlayerRoles
         }
 
         Dictionary<PgPlayType, int> PlayTypeSkillLevel;
-        Dictionary<RolesCommon.SkillThresholds, double> SkillExpectancy;
-        PlayerAttributes.PlayerAge PlayerAge;
 
-        public PointGuard(){ }
+        public PointGuard(int position) : base(position)
+        {
+
+        }
 
         public override void SetSkills(int first, int second, int third, int fourth)
         {
@@ -35,12 +36,6 @@ namespace OneShotLearnCSharp.PlayerRoles
                 { PgPlayType.Shooter, RolesCommon.GetSkillLevel(shooter) },
                 { PgPlayType.Defender, RolesCommon.GetSkillLevel(defender) }
             };
-        }
-
-        public override double GetExpectancy(int age)
-        {
-            PlayerAge = new PlayerAttributes.PlayerAge(RolesCommon.Role.PointGuard, age);
-            return PlayerAge.ModifyExpectancyBasedOnRole() * AvgNbaExpectancyPerPlaystyle();
         }
 
         public override double AvgNbaExpectancyPerPlaystyle()

@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace OneShotLearnCSharp.PlayerRoles
 {
+    public enum Role
+    {
+        PointGuard = 1,
+        TwoGuard = 2,
+        SmallForward = 3,
+        PowerForward = 4,
+        Center = 5,
+        Big = 6,
+        Wing = 7
+    }
+
     class RolesCommon
     {
-        public enum Role
-        {
-            PointGuard = 1,
-            TwoGuard = 2,
-            SmallForward = 3,
-            PowerForward = 4,
-            Center = 5,
-            Big = 6,
-            Wing = 7
-        }
+
 
         //public class CountingStats
         //{
@@ -109,7 +111,7 @@ namespace OneShotLearnCSharp.PlayerRoles
             // This person plays on good teams, and has a positive defensive RPM every year, their team's points allowed on/off per 100 is greatly affected
             public const double IMPACT_PLAYER = 8.0;
         }
-        
+
         public abstract class GuardSlasherExpectancy
         {
             // Doesn't Slash
@@ -145,7 +147,7 @@ namespace OneShotLearnCSharp.PlayerRoles
             // This person makes passes others can't see.  They are a wizard on the fastbreak.
             public const double IMPACT_PLAYER = 7.0;
         }
-        
+
         public abstract class GuardShooterExpectancy
         {
             // Does not shoot

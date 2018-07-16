@@ -27,7 +27,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 
             public double GetExpectancy(int age)
             {
-                return role.GetExpectancy(age);
+                return role.GetExpectancy(role.Position, age);
             }
         }
     }
