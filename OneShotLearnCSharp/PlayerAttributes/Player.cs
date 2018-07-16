@@ -15,18 +15,13 @@ namespace OneShotLearnCSharp.PlayerRoles
             readonly String PlayerName;
             readonly String PlayerNumber;
             readonly int LiteralAge;
-            BaseRole role;
+            readonly BaseRole role;
 
-            public Player(string playerName, string playerNumber, int literalAge)
+            public Player(string playerName, string playerNumber, int literalAge, int position)
             {
                 PlayerName = playerName;
                 PlayerNumber = playerNumber;
                 LiteralAge = literalAge;
-            }
-
-            public void SetRole(int position)
-            {
-                //Figure out how to translate RtiConvert.ToEnum(of EnumName)(string enum.ToString())
                 role = RoleFactory.CreateInstance(position);
             }
 

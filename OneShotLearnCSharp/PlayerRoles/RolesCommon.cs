@@ -19,20 +19,20 @@ namespace OneShotLearnCSharp.PlayerRoles
             Wing = 7
         }
 
-        public class CountingStats
-        {
-            Dictionary<int, int> PointsPerSeason;
-            Dictionary<int, int> ReboundsPerSeason;
-            Dictionary<int, int> AssistsPerSeason;
-            Dictionary<int, int> StealsPerSeason;
-            Dictionary<int, int> BlocksPerSeason;
-            Dictionary<int, int> ThreePtMadePerSeason;
-            Dictionary<int, int> ThreePtAttemptsPerSeason;
-            Dictionary<int, int> FTMadePerSeason;
-            Dictionary<int, int> FTAttemptPerSeason;
-            int SeasonsPlayed;
-            PlayerAttributes.PlayerAge NbaAge;
-        }
+        //public class CountingStats
+        //{
+        //    Dictionary<int, int> PointsPerSeason;
+        //    Dictionary<int, int> ReboundsPerSeason;
+        //    Dictionary<int, int> AssistsPerSeason;
+        //    Dictionary<int, int> StealsPerSeason;
+        //    Dictionary<int, int> BlocksPerSeason;
+        //    Dictionary<int, int> ThreePtMadePerSeason;
+        //    Dictionary<int, int> ThreePtAttemptsPerSeason;
+        //    Dictionary<int, int> FTMadePerSeason;
+        //    Dictionary<int, int> FTAttemptPerSeason;
+        //    int SeasonsPlayed;
+        //    PlayerAttributes.PlayerAge NbaAge;
+        //}
 
         public enum SkillThresholds
         {

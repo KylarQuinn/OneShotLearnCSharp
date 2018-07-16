@@ -10,5 +10,6 @@ namespace OneShotLearnCSharp.PlayerRoles
     {
         public abstract void SetSkills(int first, int second, int third, int fourth);
         public abstract double GetExpectancy(int Age);
+        public abstract double AvgNbaExpectancyPerPlaystyle();
     }
 }

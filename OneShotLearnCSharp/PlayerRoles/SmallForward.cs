@@ -13,6 +13,16 @@ namespace OneShotLearnCSharp.PlayerRoles
 
         }
 
+        public override double AvgNbaExpectancyPerPlaystyle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override double GetExpectancy(int Age)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void SetSkills(int first, int second, int third, int fourth)
         {
             throw new NotImplementedException();

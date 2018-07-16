@@ -37,14 +37,13 @@ namespace OneShotLearnCSharp.PlayerRoles
             };
         }
 
-
         public override double GetExpectancy(int age)
         {
             PlayerAge = new PlayerAttributes.PlayerAge(RolesCommon.Role.PointGuard, age);
-            return PlayerAge.ModifyExpectancyBasedOnRole() * AvgNbaAgeExpectancyPerPlaystyle();
+            return PlayerAge.ModifyExpectancyBasedOnRole() * AvgNbaExpectancyPerPlaystyle();
         }
 
-        double AvgNbaAgeExpectancyPerPlaystyle()
+        public override double AvgNbaExpectancyPerPlaystyle()
         {
             // Get Expectancies
             double shooterExpectancy = GetShooterExpectancy(PlayTypeSkillLevel[PgPlayType.Shooter]);
@@ -153,6 +152,5 @@ namespace OneShotLearnCSharp.PlayerRoles
                 return expectancyPairs[RolesCommon.SkillThresholds.ImpactPlayer];
             }
         }
-
     }
 }
