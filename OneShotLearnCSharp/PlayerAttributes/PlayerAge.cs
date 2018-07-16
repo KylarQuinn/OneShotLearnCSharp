@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static OneShotLearnCSharp.Positions.PositionsCommon;
-using static OneShotLearnCSharp.Positions.PointGuard;
 
 namespace OneShotLearnCSharp.PlayerAttributes
 {
+
     class PlayerAge
     {
         Dictionary<int, int> MinutesPerSeason;
-        Role Position;
+        PlayerRoles.RolesCommon.Role Position;
         int LiteralAge;
 
-        public PlayerAge(Role position)
+        public PlayerAge(PlayerRoles.RolesCommon.Role position, int literalAge)
         {
             Position = position;
+            LiteralAge = literalAge;
         }
 
-        public PlayerAge(Role position, int yearOfExperience, int minutes)
+        public PlayerAge(PlayerRoles.RolesCommon.Role position, int yearOfExperience, int minutes)
         {
             Position = position;
             if (!MinutesPerSeason.ContainsKey(yearOfExperience))

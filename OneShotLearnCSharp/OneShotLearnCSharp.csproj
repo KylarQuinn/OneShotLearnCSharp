@@ -42,13 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\EthanConvert.cs" />
+    <Compile Include="PlayerAttributes\Player.cs" />
     <Compile Include="PlayerAttributes\PlayerAge.cs" />
-    <Compile Include="Positions\PointGuard.cs" />
-    <Compile Include="Positions\Forward.cs" />
-    <Compile Include="Positions\PositionsCommon.cs" />
-    <Compile Include="Positions\TwoGuard.cs" />
-    <Compile Include="Positions\Center.cs" />
-    <Compile Include="Positions\PowerForward.cs" />
+    <Compile Include="PlayerRoles\BaseRole.cs" />
+    <Compile Include="PlayerRoles\Big.cs" />
+    <Compile Include="PlayerRoles\PowerForward.cs" />
+    <Compile Include="PlayerRoles\PointGuard.cs" />
+    <Compile Include="PlayerRoles\Forward.cs" />
+    <Compile Include="PlayerRoles\RoleFactory.cs" />
+    <Compile Include="PlayerRoles\RolesCommon.cs" />
+    <Compile Include="PlayerRoles\SmallForward.cs" />
+    <Compile Include="PlayerRoles\TwoGuard.cs" />
+    <Compile Include="PlayerRoles\Center.cs" />
+    <Compile Include="PlayerRoles\Wing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

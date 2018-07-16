@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.Positions
+namespace OneShotLearnCSharp.PlayerRoles
 {
-    class PositionsCommon
+    class RolesCommon
     {
         public enum Role
         {

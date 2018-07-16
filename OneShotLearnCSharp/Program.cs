@@ -16,12 +16,4 @@ namespace OneShotLearnCSharp
         }
     }
 
-    class Player
-    {
-        String PlayerName { get; set; }
-        String PlayerNumber { get; set; }
-        int Age { get; set; }
-        PositionsCommon.CountingStats CountingStats { get; set; }
-    }
-
 }
