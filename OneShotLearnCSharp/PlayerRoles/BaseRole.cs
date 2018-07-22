@@ -1,11 +1,11 @@
-﻿using OneShotLearnCSharp.PlayerAttributes;
+﻿using PlayerAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
     abstract class BaseRole
     {

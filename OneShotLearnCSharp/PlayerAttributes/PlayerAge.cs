@@ -1,7 +1,7 @@
 ﻿using System;
-using OneShotLearnCSharp.PlayerRoles;
+using PlayerRoles;
 
-namespace OneShotLearnCSharp.PlayerAttributes
+namespace PlayerAttributes
 {
     // Simplify the concept to only incoming draft prospects.  The scope explodes otherwise.
     class PlayerAge

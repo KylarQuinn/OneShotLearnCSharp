@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
-    class Center : PlayerRoles.BaseRole
+    class Center : BaseRole
     {
         public Center(Role role) : base(role)
         {

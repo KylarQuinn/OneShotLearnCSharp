@@ -1,7 +1,7 @@
 ﻿using System;
-using OneShotLearnCSharp.Converters;
+using Converters;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
 
     namespace OneShotLearnCSharp
