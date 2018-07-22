@@ -8,7 +8,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class TwoGuard : BaseRole
     {
-        public TwoGuard(int position) : base(position)
+        public TwoGuard(Role role) : base(role)
         {
 
         }

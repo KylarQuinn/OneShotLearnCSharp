@@ -18,7 +18,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 
         Dictionary<PgPlayType, int> PlayTypeSkillLevel;
 
-        public PointGuard(int position) : base(position)
+        public PointGuard(Role role) : base(role)
         {
 
         }

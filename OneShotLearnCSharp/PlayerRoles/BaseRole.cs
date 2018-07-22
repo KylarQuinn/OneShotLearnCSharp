@@ -11,11 +11,11 @@ namespace OneShotLearnCSharp.PlayerRoles
     {
         internal Dictionary<RolesCommon.SkillThresholds, double> SkillExpectancy;
         PlayerAge PlayerAge;
-        public readonly int Position;
+        public readonly Role Role;
 
-        protected BaseRole(int position)
+        protected BaseRole(Role role)
         {
-            Position = position;
+            Role = role;
         }
 
         #region "To Override"
@@ -25,10 +25,14 @@ namespace OneShotLearnCSharp.PlayerRoles
 
         #endregion
 
-        public double GetExpectancy(int role, int age)
+        #region "Common methods"
+
+        public double GetExpectancy(Role role, int age)
         {
             PlayerAge = new PlayerAge(role, age);
             return PlayerAge.ModifyExpectancyBasedOnRole() * AvgNbaExpectancyPerPlaystyle();
         }
+
+        #endregion
     }
 }

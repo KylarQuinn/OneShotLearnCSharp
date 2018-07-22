@@ -8,7 +8,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class Wing : BaseRole
     {
-        public Wing(int position) : base(position)
+        public Wing(Role role) : base(role)
         {
 
         }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.Positions
+namespace OneShotLearnCSharp.PlayerRoles
 {
-    class PowerForward : PlayerRoles.BaseRole
+    class PowerForward : BaseRole
     {
-        public PowerForward(int position) : base(position)
+        public PowerForward(Role role) : base(role)
         {
 
         }

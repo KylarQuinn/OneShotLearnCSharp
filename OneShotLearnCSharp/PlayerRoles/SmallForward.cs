@@ -8,7 +8,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class SmallForward : BaseRole
     {
-        public SmallForward(int position) : base(position)
+        public SmallForward(Role role) : base(role)
         {
 
         }

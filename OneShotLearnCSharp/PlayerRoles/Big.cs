@@ -8,7 +8,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 {
     class Big : BaseRole
     {
-        public Big(int position) : base(position)
+        public Big(Role role) : base(role)
         {
 
         }

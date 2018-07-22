@@ -1,37 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OneShotLearnCSharp.PlayerRoles;
 
 namespace OneShotLearnCSharp.PlayerAttributes
 {
     // Simplify the concept to only incoming draft prospects.  The scope explodes otherwise.
     class PlayerAge
     {
-        int Position;
+        Role Role;
         int LiteralAge;
 
-        public PlayerAge(int position, int literalAge)
+        public PlayerAge(Role role, int literalAge)
         {
-            Position = position;
+            Role = role;
             LiteralAge = literalAge;
         }
 
         public double ModifyExpectancyBasedOnRole()
         {
-            PlayerRoles.Role position = Converters.EthanConvert.ToRole(Position);
-            switch (position)
+            switch (Role)
             {
-                case PlayerRoles.Role.PointGuard:
-                case PlayerRoles.Role.TwoGuard:
+                case Role.PointGuard:
+                case Role.TwoGuard:
                     return ModifyGuardsBasedOnAge(LiteralAge);
-                case PlayerRoles.Role.SmallForward:
-                case PlayerRoles.Role.Wing:
+                case Role.SmallForward:
+                case Role.Wing:
                     return ModifyWingsBasedOnAge(LiteralAge);
-                case PlayerRoles.Role.PowerForward:
-                case PlayerRoles.Role.Big:
-                case PlayerRoles.Role.Center:
+                case Role.PowerForward:
+                case Role.Big:
+                case Role.Center:
                     return ModifyBigsBasedOnAge(LiteralAge);
                 default:
                     throw new InvalidOperationException("Enountered undefined role.");
@@ -43,17 +39,17 @@ namespace OneShotLearnCSharp.PlayerAttributes
             switch (literalAge)
             {
                 case 18:
-                    return PlayerRoles.RolesCommon.BigAgeModifier.EIGHTEEN;
+                    return RolesCommon.BigAgeModifier.EIGHTEEN;
                 case 19:
-                    return PlayerRoles.RolesCommon.BigAgeModifier.NINETEEN;
+                    return RolesCommon.BigAgeModifier.NINETEEN;
                 case 20:
-                    return PlayerRoles.RolesCommon.BigAgeModifier.TWENTY;
+                    return RolesCommon.BigAgeModifier.TWENTY;
                 case 21:
-                    return PlayerRoles.RolesCommon.BigAgeModifier.TWENTYONE;
+                    return RolesCommon.BigAgeModifier.TWENTYONE;
                 case 22:
-                    return PlayerRoles.RolesCommon.BigAgeModifier.TWENTYTWO;
+                    return RolesCommon.BigAgeModifier.TWENTYTWO;
                 case 23:
-                    return PlayerRoles.RolesCommon.BigAgeModifier.TWENTYTHREE;
+                    return RolesCommon.BigAgeModifier.TWENTYTHREE;
                 default:
                     return 0;
             }
@@ -64,17 +60,17 @@ namespace OneShotLearnCSharp.PlayerAttributes
             switch (literalAge)
             {
                 case 18:
-                    return PlayerRoles.RolesCommon.WingAgeModifier.EIGHTEEN;
+                    return RolesCommon.WingAgeModifier.EIGHTEEN;
                 case 19:
-                    return PlayerRoles.RolesCommon.WingAgeModifier.NINETEEN;
+                    return RolesCommon.WingAgeModifier.NINETEEN;
                 case 20:
-                    return PlayerRoles.RolesCommon.WingAgeModifier.TWENTY;
+                    return RolesCommon.WingAgeModifier.TWENTY;
                 case 21:
-                    return PlayerRoles.RolesCommon.WingAgeModifier.TWENTYONE;
+                    return RolesCommon.WingAgeModifier.TWENTYONE;
                 case 22:
-                    return PlayerRoles.RolesCommon.WingAgeModifier.TWENTYTWO;
+                    return RolesCommon.WingAgeModifier.TWENTYTWO;
                 case 23:
-                    return PlayerRoles.RolesCommon.WingAgeModifier.TWENTYTHREE;
+                    return RolesCommon.WingAgeModifier.TWENTYTHREE;
                 default:
                     return 0.0;
             }
@@ -85,17 +81,17 @@ namespace OneShotLearnCSharp.PlayerAttributes
             switch (literalAge)
             {
                 case 18:
-                    return PlayerRoles.RolesCommon.GuardAgeModifier.EIGHTEEN;
+                    return RolesCommon.GuardAgeModifier.EIGHTEEN;
                 case 19:
-                    return PlayerRoles.RolesCommon.GuardAgeModifier.NINETEEN;
+                    return RolesCommon.GuardAgeModifier.NINETEEN;
                 case 20:
-                    return PlayerRoles.RolesCommon.GuardAgeModifier.TWENTY;
+                    return RolesCommon.GuardAgeModifier.TWENTY;
                 case 21:
-                    return PlayerRoles.RolesCommon.GuardAgeModifier.TWENTYONE;
+                    return RolesCommon.GuardAgeModifier.TWENTYONE;
                 case 22:
-                    return PlayerRoles.RolesCommon.GuardAgeModifier.TWENTYTWO;
+                    return RolesCommon.GuardAgeModifier.TWENTYTWO;
                 case 23:
-                    return PlayerRoles.RolesCommon.GuardAgeModifier.TWENTYTHREE;
+                    return RolesCommon.GuardAgeModifier.TWENTYTHREE;
                 default:
                     return 0.0;
             }
