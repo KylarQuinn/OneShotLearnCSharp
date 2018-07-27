@@ -1,31 +1,30 @@
-﻿using OneShotLearnCSharp.Positions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
     class RoleFactory
     {
-        public static BaseRole CreateInstance(int role)
+        public static BaseRole CreateInstance(Role role)
         {
             switch (role)
             {
-                case 1:
+                case Role.PointGuard:
                     return new PointGuard(role);
-                case 2:
+                case Role.TwoGuard:
                     return new TwoGuard(role);
-                case 3:
+                case Role.SmallForward:
                     return new SmallForward(role);
-                case 4:
+                case Role.PowerForward:
                     return new PowerForward(role);
-                case 5:
+                case Role.Center:
                     return new Center(role);
-                case 6:
+                case Role.Big:
                     return new Big(role);
-                case 7:
+                case Role.Wing:
                     return new Wing(role);
                 default:
                     throw new InvalidOperationException("Player role encountered that is not defined.");

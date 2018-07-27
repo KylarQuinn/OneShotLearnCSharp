@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
     class SmallForward : BaseRole
     {
-        public SmallForward(int position) : base(position)
+        public SmallForward(Role role) : base(role)
         {
 
         }

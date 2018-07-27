@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
     class Wing : BaseRole
     {
-        public Wing(int position) : base(position)
+        public Wing(Role role) : base(role)
         {
 
         }

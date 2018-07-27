@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
     class PointGuard : BaseRole
     {
@@ -18,7 +18,7 @@ namespace OneShotLearnCSharp.PlayerRoles
 
         Dictionary<PgPlayType, int> PlayTypeSkillLevel;
 
-        public PointGuard(int position) : base(position)
+        public PointGuard(Role role) : base(role)
         {
 
         }

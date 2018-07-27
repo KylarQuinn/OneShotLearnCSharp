@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static OneShotLearnCSharp.PlayerRoles.RolesCommon;
+using Converters;
 
-namespace OneShotLearnCSharp.PlayerRoles
+namespace PlayerRoles
 {
 
     namespace OneShotLearnCSharp
@@ -22,12 +18,13 @@ namespace OneShotLearnCSharp.PlayerRoles
                 PlayerName = playerName;
                 PlayerNumber = playerNumber;
                 LiteralAge = literalAge;
-                role = RoleFactory.CreateInstance(position);
+                role = RoleFactory.CreateInstance(EthanConvert.ToRole(position));
             }
 
             public double GetExpectancy(int age)
             {
-                return role.GetExpectancy(role.Position, age);
+                // This doesn't feel right.
+                return role.GetExpectancy(role.Role, age);
             }
         }
     }

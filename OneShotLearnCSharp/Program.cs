@@ -1,10 +1,8 @@
-﻿using OneShotLearnCSharp.Positions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static OneShotLearnCSharp.PlayerAttributes.PlayerAge;
 
 namespace OneShotLearnCSharp
 {
@@ -12,6 +10,10 @@ namespace OneShotLearnCSharp
     {
         static void Main(string[] args)
         {
+            // prompt for positon
+            // prompt for age
+            // prompt for skill level based on roles
+            // output expected nba years played expectancy
             
         }
     }

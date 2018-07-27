@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneShotLearnCSharp.Converters
+namespace Converters
 {
+    // This class should really be its own project for wrapping things like convert strings to ints, ints to strings, ints to shorts, enumns and such things.
     public abstract class EthanConvert
     {
         public static PlayerRoles.Role ToRole(int position)
@@ -32,3 +33,4 @@ namespace OneShotLearnCSharp.Converters
         }
     }
 }
+
