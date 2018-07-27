@@ -17,6 +17,17 @@ namespace PlayerRoles
         Wing = 7
     }
 
+    public class RoleNames
+    {
+        public static string POINT_GUARD = "Point Guard";
+        public static string TWO_GUARD = "Two Guard";
+        public static string SMALL_FORWARD = "Small Forward";
+        public static string POWER_FORWARD = "Power Forward";
+        public static string CENTER = "Center";
+        public static string WING = "Wing";
+        public static string BIG = "Big";
+    }
+
     class RolesCommon
     {
 
