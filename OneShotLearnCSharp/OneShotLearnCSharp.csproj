@@ -51,7 +51,7 @@
     <Compile Include="PlayerRoles\PointGuard.cs" />
     <Compile Include="PlayerRoles\Forward.cs" />
     <Compile Include="PlayerRoles\RoleFactory.cs" />
-    <Compile Include="PlayerRoles\RolesCommon.cs" />
+    <Compile Include="Helpers\RolesCommon.cs" />
     <Compile Include="PlayerRoles\SmallForward.cs" />
     <Compile Include="PlayerRoles\TwoGuard.cs" />
     <Compile Include="PlayerRoles\Center.cs" />

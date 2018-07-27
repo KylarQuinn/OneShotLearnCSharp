@@ -1,6 +1,6 @@
 ﻿namespace FrontEndApp
 {
-    partial class Form1
+    partial class NewPlayer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPlayer));
             this.lblLiteralAge = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPlayerAge = new System.Windows.Forms.TextBox();
             this.btnNextPage = new System.Windows.Forms.Button();
             this.cboRoles = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -55,12 +55,12 @@
             this.lblRole.TabIndex = 1;
             this.lblRole.Text = "Role:";
             // 
-            // textBox1
+            // txtPlayerAge
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 124);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtPlayerAge.Location = new System.Drawing.Point(121, 124);
+            this.txtPlayerAge.Name = "txtPlayerAge";
+            this.txtPlayerAge.Size = new System.Drawing.Size(100, 22);
+            this.txtPlayerAge.TabIndex = 3;
             // 
             // btnNextPage
             // 
@@ -70,6 +70,7 @@
             this.btnNextPage.TabIndex = 5;
             this.btnNextPage.Text = "Next";
             this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.Click += new System.EventHandler(this.BtnNextPage_OnClick);
             // 
             // cboRoles
             // 
@@ -87,7 +88,7 @@
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // Form1
+            // NewPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,10 +96,10 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.cboRoles);
             this.Controls.Add(this.btnNextPage);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPlayerAge);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblLiteralAge);
-            this.Name = "Form1";
+            this.Name = "NewPlayer";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,7 +110,7 @@
 
         private System.Windows.Forms.Label lblLiteralAge;
         private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPlayerAge;
         private System.Windows.Forms.Button btnNextPage;
         private System.Windows.Forms.ComboBox cboRoles;
         private System.Windows.Forms.RichTextBox richTextBox1;

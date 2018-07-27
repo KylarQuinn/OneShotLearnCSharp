@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OneShotLearnCSharp">
+      <HintPath>..\OneShotLearnCSharp\bin\Debug\OneShotLearnCSharp.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,16 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="NewPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="NewPlayer.Designer.cs">
+      <DependentUpon>NewPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAttributes.Designer.cs">
+      <DependentUpon>AddAttributes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AddAttributes.resx">
+      <DependentUpon>AddAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPlayer.resx">
+      <DependentUpon>NewPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

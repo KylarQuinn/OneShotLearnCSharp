@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FrontEndApp
 {
-    public partial class Form1 : Form
+    public partial class AddAttributes : Form
     {
-        public Form1()
+        PlayerRoles.Player Player;
+
+        public AddAttributes(PlayerRoles.Player player)
         {
             InitializeComponent();
+            Player = player;
         }
+
+
     }
 }
